@@ -40,10 +40,9 @@ async def invite(ctx):
     ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
 
 @client.command()
-async def ping(ctx, bot):
-    if message.content.startswith('*ping'):
-        embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {bot.latency}'), color=0x00ff00)
-        await ctx.channel.send(embed=embedVar)
+async def ping(ctx):
+       embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {bot.latency*1000}'), color=0x00ff00)
+       await ctx.channel.send(embed=embedVar)
 
 
 
