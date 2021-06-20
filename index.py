@@ -21,7 +21,6 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is online")
 
-client.remove_command('help')
 
 
 
@@ -38,13 +37,6 @@ async def invite(ctx):
     ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
 
 
-
-
-
-
-
-
-
 @client.command()
 async def gorbay(ctx):
     print("gorbay Entered")
@@ -53,10 +45,6 @@ async def gorbay(ctx):
     help_em.add_field(name="کامند ها اصلی", value="*gorbay : `منو کامندها`\n*invite : `اینوایت دادن بات`\n*ping : `نمایش پینگ`", inline=False)
     await ctx.send(embed=help_em)
     
-    
-@client.command()
-async def invite(ctx):
-    ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
 
 @client.command()
 async def ping(ctx):
