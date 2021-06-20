@@ -26,9 +26,9 @@ async def on_ready():
 
 
 
-with open("./possibilities.json", "r") as file:
+with open("./posibilites.json", "r") as file:
     data = json.load(file) 
-    possibilities = data['possibilities']
+    possibilities = data['posibilites.json']
 
 @client.command()
 async def b8(ctx ,* , question):
