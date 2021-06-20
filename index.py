@@ -56,7 +56,7 @@ async def gorbay(ctx):
 @client.command()
 async def ping(ctx, bot):
     if message.content.startswith('*ping'):
-        embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {bot.latency}'), color=0x00ff00)
+        embedVar = discord.Embed(title="پینگ شما!", description=(f'پینگ شما {bot.latency}ms است'), color=0x00ff00)
         await ctx.channel.send(embed=embedVar)
 
 
