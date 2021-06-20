@@ -30,11 +30,17 @@ with open("./possibilities.json", "r") as file:
     data = json.load(file) 
     possibilities = data['possibilities']
 
-@bot.command(aliases=['8ball']) 
-async def 8ball(ctx, *, question):
+@client.command()
+async def b8(ctx ,* , question):
     response = random.choice(possibilities)
     embed = discord.Embed(title=ctx.message.author, description= "8ball", value= f'{question}\nAnswer:{response}')
     await ctx.send(embed=embed)
+
+
+
+
+
+
 
 
     
