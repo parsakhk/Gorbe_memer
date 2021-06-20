@@ -41,8 +41,16 @@ async def invite(ctx):
 
 @client.command()
 async def ping(ctx):
-       embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {client.latency*1000}'), color=0x00ff00)
-       await ctx.channel.send(embed=embedVar)
+       ping = client.latency*1000
+       ping_list = list(str(ping))
+       end_list = []
+       for i in ping_list :
+            if (i == "."):
+                end_ping = ''.join(end_list)
+                ping_embed = discord.Embed(title="پینگ شما!", description=(f'your ping is {end_ping}'), color=0x00ff00)
+                await ctx.channel.send(embed= ping_embed)
+            else :
+                end_list.append(i)       
 
 
 
