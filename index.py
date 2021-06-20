@@ -19,7 +19,7 @@ client = commands.Bot(command_prefix = "*")
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name="| Hi, I'm Goorbay | *Gorbay | *invite |")
+    activity = discord.Game(name="| Hi, I'm Gorbay | *Gorbay | *invite |")
     await client.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is online")
 
