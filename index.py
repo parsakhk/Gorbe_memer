@@ -23,4 +23,25 @@ async def on_ready():
 
 client.remove_command('help')
 
+
+
+
+@client.command()
+async def gorbay(ctx):
+    print("gorbay Entered")
+    
+    help_em = discord.Embed(title="منو کامند ها", color=0xFFD700)
+    help_em.add_field(name="کامند ها اصلی", value="*gorbay : `منو کامندها`\n*invite : `اینوایت دادن بات`\n*ping : `نمایش پینگ`", inline=False)
+    await ctx.send(embed=help_em)
+    
+    
+@client.command()
+async def invite(ctx):
+    ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
+
+
+
+
+
+
 client.run('ODU2MTI1OTMxODY1NTA1ODEy.YM8faA.G9l7X8Wp-smN6TyY67Hbnsej5BE')
