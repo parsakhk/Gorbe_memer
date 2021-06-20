@@ -7,11 +7,13 @@ from discord.colour import Color
 from discord.embeds import Embed
 from discord.enums import TeamMembershipState
 from discord.ext import commands
+from discord.ext.commands import bot
 from discord.flags import Intents
 from discord.message import Message
 from random import randbytes, randint
 import asyncio
 import gzip
+import json
 
 client = commands.Bot(command_prefix = "*")
 
@@ -21,9 +23,25 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is online")
 
-client.remove_command('help')
 
 
+
+with open("./possibilities.json", "r") as file:
+    data = json.load(file) 
+    possibilities = data['possibilities']
+
+@bot.command(aliases=['8ball']) 
+async def _8ball(ctx, *, question):
+    response = random.choice(possibilities)
+    embed = discord.Embed(title="8ball", description=f'Question: {question}\nAnswer:{response}')
+    await ctx.send(embed=embed)
+
+
+    
+    
+@client.command()
+async def invite(ctx):
+    ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
 
 
 @client.command()
@@ -34,23 +52,12 @@ async def gorbay(ctx):
     help_em.add_field(name="کامند ها اصلی", value="*gorbay : `منو کامندها`\n*invite : `اینوایت دادن بات`\n*ping : `نمایش پینگ`", inline=False)
     await ctx.send(embed=help_em)
     
-    
-@client.command()
-async def invite(ctx):
-    ctx.reply("لینک اینوایت خدمت شما\nhttps://discord.com/api/oauth2/authorize?client_id=856125931865505812&permissions=0&scope=bot")
 
 @client.command()
-async def ping(ctx):
-       ping = client.latency*1000
-       ping_list = list(str(ping))
-       end_list = []
-       for i in ping_list :
-            if (i == "."):
-                end_ping = ''.join(end_list)
-                ping_embed = discord.Embed(title="پینگ شما!", description=(f'your ping is {end_ping}'), color=0x00ff00)
-                await ctx.channel.send(embed= ping_embed)
-            else :
-                end_list.append(i)       
+async def ping(ctx, bot):
+    if message.content.startswith('*ping'):
+        embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {bot.latency}'), color=0x00ff00)
+        await ctx.channel.send(embed=embedVar)
 
 
 
