@@ -21,6 +21,14 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is online")
 
+@client.command()
+async def ping(message, bot):
+    if message.content.startswith('*ping'):
+        embedVar = discord.Embed(title="پینگ شما!", description=(f'your ping is {bot.latency}'), color=0x00ff00)
+        embedVar.add_field(name="Field1", value="hi", inline=False)
+        embedVar.add_field(name="Field2", value="hi2", inline=False)
+        await message.channel.send(embed=embedVar)
+
 client.remove_command('help')
 
 
